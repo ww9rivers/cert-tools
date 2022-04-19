@@ -1,0 +1,30 @@
+{
+  "name": "incommon",
+  "version": "1.0.0",
+  "description": "Tool for managing TLS certs enrolled with InCommon Certificate Manager.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node index",
+    "test": "mocha",
+    "test-config": "node test/test.js"
+  },
+  "keywords": [
+    "SSL",
+    "TLS",
+    "cert",
+    "certificate"
+  ],
+  "author": "Wei Wang <ww@9rivers.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.21.1",
+    "c9r": "file:../../js/c9r.js",
+    "chai": "^4.3.6",
+    "commander": "^9.2.0",
+    "pino": "^7.10.0"
+  },
+  "devDependencies": {
+    "mocha": "^9.2.2"
+  }
+}
