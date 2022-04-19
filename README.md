@@ -1,8 +1,11 @@
-# incommon
+# cert-tools
 
-A package for SSL/TLS certificate management using the
+A package for SSL/TLS certificate management aims to use the
 [InCommon Certificate Manager](https://cert-manager.com/customer/InCommon/ssl)
 API functions.
+
+Currently, this package uses [openssl](https://www.openssl.org/) for key, certificate
+signing request (CSR) generation.
 
 ## Commands
 
@@ -13,12 +16,22 @@ revoke a certificate.
 
 To run a build of the cert for a given host.
 
+## CLI Tool Usage
+
+The package includes some command line tools.
+### CSR and key generation
+
+```shell
+src/csr-cli.js --help
+```
+
 ## Configuration
 
 A configuration file may be placed in ```etc/config.json``` file, in JSON format, to
 configure how this suite of tools behave.
 
 ### CSR Generation
+
 
 ```json
 "csr": {
@@ -32,25 +45,19 @@ configure how this suite of tools behave.
 	},
 	"req_ext": {
 		"subjectAltName": "@alt_names"
-	}
-}
-```
-
-### openssl
-
-```json
-"openssl": {
+	},
 	"dn": {
 		"C": "US",
-		"ST": "Michigan",
-		"L": "Ann Arbor",
-		"O": "University of Michigan",
-		"OU": "HITS",
-		"emailAddress": "HITS-Performance@umich.edu",
-		"CN": "splunkapp-preprod01.med.umich.edu"
+		"ST": "<State>",
+		"L": "<City>",
+		"O": "<Company Name>",
+		"OU": "<Department>",
+		"emailAddress": "<OU-email-address>",
+		"CN": "<hostname>"
 	}
 }
 ```
+
 ## Author
 
 * Wei Wang <ww@9rivers.com>
